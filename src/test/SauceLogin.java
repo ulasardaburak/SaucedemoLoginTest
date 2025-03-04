@@ -45,7 +45,6 @@ public class SauceLogin {
         loginButton.click();
 
         if (expectedSuccess) {
-            // Başarılı girişte ürün sayfasına yönlendirilmeli
             boolean isLoggedIn = driver.findElements(By.className("inventory_list")).size() > 0;
             if (isLoggedIn) {
                 System.out.println(username + " ile giriş başarılı.");
@@ -53,7 +52,6 @@ public class SauceLogin {
                 System.out.println(username + " ile giriş başarısız!");
             }
         } else {
-            // Hata mesajını kontrol et
             WebElement errorMessage = driver.findElement(By.cssSelector("[data-test='error']"));
             if (errorMessage.isDisplayed()) {
                 System.out.println(username + " için hata mesajı: " + errorMessage.getText());
